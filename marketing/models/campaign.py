@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ValidationError
 
 # Create your models here.
 class Campaign(models.Model):
@@ -12,3 +13,7 @@ class Campaign(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def clean(self):
+        if self.start_date >= self.end_date:
+            raise ValidationError("Start date must be before end date")

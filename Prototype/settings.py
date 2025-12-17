@@ -32,10 +32,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "crm-prototype-a2sv.onrender.com",
+    'localhost',
+    '127.0.0.1'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://crm-prototype-a2sv.onrender.com",
+    'http://localhost',
+    'http://127.0.0.1'
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -78,11 +82,20 @@ JAZZMIN_SETTINGS = {
         "service.ticket": "fas fa-ticket-alt",
         "service.article": "fas fa-newspaper"
     },
+    "topmenu_links": [
+        {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Core", "app": "core"},
+        {"name": "Marketing", "app": "marketing"},
+        {"name": "Sales", "app": "sales"},
+        {"name": "Service", "app": "service"},
+    ],
     "site_title": "CRM Admin",
     "site_header": "CRM Dashboard",
     "site_brand": "CRM",
     "welcome_sign": "Welcome to the CRM Admin",
     "site_logo": "images/logo.png",
+    "site_icon": "images/logo.png",
+    "login_logo": "images/loginlogo.png",
     "site_logo_classes": "img-circle"
 }
 
@@ -164,6 +177,7 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
