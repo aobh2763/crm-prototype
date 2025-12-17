@@ -43,8 +43,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crm'
+    'core'
 ]
+
+JAZZMIN_SETTINGS = {
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.group": "fas fa-users",
+        "core.product": "fas fa-box",
+        "core.stock": "fas fa-warehouse",
+        "core.client": "fas fa-user-tie",
+        "core.subscription": "fas fa-id-card",
+        "core.address": "fas fa-map-marker-alt"
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
