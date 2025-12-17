@@ -30,8 +30,7 @@ SECRET_KEY = os.getenv('key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["crm-prototype-a2sv.onrender.com", "localhost", "127.0.0.1"]
-
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
