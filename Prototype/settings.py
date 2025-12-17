@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'marketing',
+    'sales'
 ]
 
 JAZZMIN_SETTINGS = {
@@ -55,7 +57,15 @@ JAZZMIN_SETTINGS = {
         "core.stock": "fas fa-warehouse",
         "core.client": "fas fa-user-tie",
         "core.subscription": "fas fa-id-card",
-        "core.address": "fas fa-map-marker-alt"
+        "core.address": "fas fa-map-marker-alt",
+        "marketing.activity": "fas fa-bullhorn",
+        "marketing.campaign": "fas fa-bullseye",
+        "marketing.contact": "fas fa-address-book",
+        "marketing.prospect": "fas fa-user-plus",
+        "sales.sale": "fas fa-shopping-cart",
+        "sales.order": "fas fa-receipt",
+        "sales.opportunity": "fas fa-lightbulb",
+        "sales.bill": "fas fa-file-invoice-dollar"
     }
 }
 

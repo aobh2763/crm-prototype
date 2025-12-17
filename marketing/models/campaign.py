@@ -1,14 +1,14 @@
 from django.db import models
 
 # Create your models here.
-class Prospect(models.Model):
+class Campaign(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    client = models.ForeignKey('core.Client', on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
-    is_active = models.BooleanField(default=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    budget = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.name
