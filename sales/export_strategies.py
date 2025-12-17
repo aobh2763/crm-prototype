@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from openpyxl import Workbook
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
+from django.utils.timezone import is_aware, make_naive
+import datetime
 
 
 class ExportStrategy:
@@ -46,6 +48,7 @@ class ExcelStrategy(ExportStrategy):
         ws = wb.active
         ws.title = queryset.model.__name__
 
+        # Header row
         ws.append(fields)
 
         for obj in queryset:
@@ -54,6 +57,9 @@ class ExcelStrategy(ExportStrategy):
                 attr = getattr(obj, f, '')
                 if callable(attr):
                     attr = attr()
+                
+                if isinstance(attr, datetime.datetime) and is_aware(attr):
+                    attr = make_naive(attr)
                 row.append(attr)
             ws.append(row)
 

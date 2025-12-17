@@ -1,7 +1,8 @@
 from django.contrib import admin
 
+
 from .export_strategies import export_with_strategy, CSVStrategy, ExcelStrategy, PDFStrategy
-from .models import Product, Stock, Quantity, Client, Subscription, Address
+from .models import Product, Stock, Quantity, Client, Subscription, Address, PerformanceIndicator
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -71,3 +72,22 @@ class AddressAdmin(admin.ModelAdmin):
         export_with_strategy(ExcelStrategy),
         export_with_strategy(PDFStrategy),
     ]
+    
+@admin.register(PerformanceIndicator)
+class PerformanceIndicatorAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'target_value', 'actual_value', 'started_at', 'ended_at', 'progress_percentage')
+    search_fields = ('name', 'description')
+    list_filter = ('started_at', 'ended_at')
+    ordering = ('-started_at',)
+
+    actions = [
+        export_with_strategy(CSVStrategy),
+        export_with_strategy(ExcelStrategy),
+        export_with_strategy(PDFStrategy),
+    ]
+
+    def progress_percentage(self, obj):
+        if obj.target_value == 0:
+            return 0
+        return round((obj.actual_value / obj.target_value) * 100, 2)
+    progress_percentage.short_description = "Progress (%)"
