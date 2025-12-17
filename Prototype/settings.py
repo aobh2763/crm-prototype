@@ -28,9 +28,9 @@ load_dotenv()
 SECRET_KEY = os.getenv('key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["crm-prototype-a2sv.onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -76,8 +76,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "CRM",
     "welcome_sign": "Welcome to the CRM Admin",
     "site_logo": "images/logo.png",
-    "site_logo_classes": "img-circle",
-    "login_logo": "images/logo.png"
+    "site_logo_classes": "img-circle"
 }
 
 MIDDLEWARE = [
