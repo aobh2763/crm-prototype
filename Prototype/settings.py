@@ -70,7 +70,14 @@ JAZZMIN_SETTINGS = {
         "sales.bill": "fas fa-file-invoice-dollar",
         "service.ticket": "fas fa-ticket-alt",
         "service.article": "fas fa-newspaper"
-    }
+    },
+    "site_title": "CRM Admin",
+    "site_header": "CRM Dashboard",
+    "site_brand": "CRM",
+    "welcome_sign": "Welcome to the CRM Admin",
+    "site_logo": "images/logo.png",
+    "site_logo_classes": "img-circle",
+    "login_logo": "images/logo.png"
 }
 
 MIDDLEWARE = [
@@ -148,7 +155,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
